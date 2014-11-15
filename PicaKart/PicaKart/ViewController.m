@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "Configure.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -33,15 +34,13 @@
 - (void)getUserMetaData
 {
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    ;
-    NSDictionary* userDict = [defaults objectForKey:@"userDict"];
+    AppDelegate * appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+
     
     NSURL *baseURL = [NSURL URLWithString:BASE_URL_STR];
-  //  NSDictionary *parameters = @{@"memberId": [userDict objectForKey:@"memberID"], @"sha": sha,@"vendorId": lab};
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:[userDict objectForKey:@"memberID"] forHTTPHeaderField:@"memberId"];
+    [manager.requestSerializer setValue:appDelgate.memberId forHTTPHeaderField:@"memberId"];
         [manager.requestSerializer setValue:lab forHTTPHeaderField:@"vendorId"];
        [manager.requestSerializer setValue:sha forHTTPHeaderField:@"sha"];
     
@@ -62,45 +61,10 @@
         [alertView show];
     }];
 
-    
-    
-//    NSURL *baseURL = [NSURL URLWithString:BASE_URL_STR];
-//    //    NSDictionary *parameters = @{@"name": self.userName,@"email": self.userEmail,@"mobile": self.userMobileNo,@"lab":[NSNumber numberWithInt:lab],@"regType":[NSNumber numberWithInt:regType]};
-//    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-//    
-// 
-//    [manager.requestSerializer setValue:[userDict objectForKey:@"memberID"] forHTTPHeaderField:@"memberId"];
-//    [manager.requestSerializer setValue:lab forHTTPHeaderField:@"vendorId"];
-//    [manager.requestSerializer setValue:sha forHTTPHeaderField:@"sha"];
-//    
-//    
-//    
-//    [manager POST:[NSString stringWithFormat:@"%@/%@",MEMBER_URL,REGISTER_USER_URL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        
-//        NSDictionary* dict = (NSDictionary*)responseObject;
-//        
-//        
-//        
-//        
-//        
-//        //        verificationCode = [[dict objectForKey:@"SendVerificationResult"] objectForKey:@"Message"];
-//        //
-//        //        [self performSegueWithIdentifier:@"verificationSegue" sender:self];
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Verification Request"
-//                                                            message:[error localizedDescription]
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"Ok"
-//                                                  otherButtonTitles:nil];
-//        [alertView show];
-//    }];
 }
 
 - (IBAction)photoPrintsClicked:(id)sender
 {
-    
-    
     [self performSegueWithIdentifier:@"printSegue" sender:self];
 }
 

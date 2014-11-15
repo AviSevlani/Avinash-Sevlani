@@ -83,6 +83,7 @@
             [userDefaults synchronize];
             
             AppDelegate * appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+            appDelgate.memberId = memberId;
             [appDelgate goToDashboard];
         }
         

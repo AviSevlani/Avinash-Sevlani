@@ -22,6 +22,7 @@
     // Override point for customization after application launch.
     if ([defaults objectForKey:@"userDict"])
     {
+        self.memberId = [[defaults objectForKey:@"userDict"]objectForKey:@"memberID"];
         [self goToDashboard];
         
     }

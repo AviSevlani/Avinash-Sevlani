@@ -116,10 +116,13 @@
         [imageOrderDict setObject:@"1" forKey:@"noOfOrder"];
         [imageOrderDict setObject:imageString forKey:@"imageId"];
         [imageOrderArray addObject:imageOrderDict];
+        
+        
+        [[[UIAlertView alloc]initWithTitle:@"Photo Added" message:@"Photo selected has been added" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
     else
     {
-        [[[UIAlertView alloc]initWithTitle:@"Already Added" message:@"Photo you have selected has been already Added" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"Already Added" message:@"Photo you have selected has been already added" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         
     }
     
