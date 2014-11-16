@@ -8,11 +8,14 @@
 
 #import "ConfirmOrderViewController.h"
 #import "PhotoTableViewCell.h"
+#import "AppDelegate.h"
+#import "UserMetaData.h"
 
 @interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,photoOrderDelegate,UIImagePickerControllerDelegate>
 {
     NSMutableArray* imageOrderArray;
     UIBarButtonItem* doneButton;
+    NSMutableArray* availableItemArray;
 }
 
 @end
@@ -21,7 +24,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+     AppDelegate* appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    
     imageOrderArray  = [[NSMutableArray alloc]init];
+    availableItemArray = [[NSMutableArray alloc]init];
+    switch (self.selectedCategory)
+    {
+        case 0:
+        {
+            [availableItemArray addObjectsFromArray:appDelgate.userData.photoBookPrintsArray];
+        }
+            
+            break;
+        case 1:
+        {
+         [availableItemArray addObjectsFromArray:appDelgate.userData.tShirtPrintsArray];
+        }
+            
+            break;
+        case 2:
+        {
+            [availableItemArray addObjectsFromArray:appDelgate.userData.mugPrintsArray];
+        }
+            
+            break;
+        case 3:
+        {
+            [availableItemArray addObjectsFromArray:appDelgate.userData.photoBookPrintsArray];
+        }
+            break;
+            
+        default:
+            break;
+    }
     
     // Do any additional setup after loading the view.
 }

@@ -37,6 +37,64 @@
     self.window.rootViewController = vc;
 }
 
+
+- (void)initializeUserMetadat
+{
+    self.userData = [[UserMetaData alloc]init];
+}
+
+- (void)parseMetadat:(NSDictionary*)metaData
+{
+    
+    if ([metaData objectForKey:@"Address"])
+    {
+        self.userData.addressArray = (NSArray*)[metaData objectForKey:@"Address"];
+    }
+    if ([metaData objectForKey:@"isCOD"])
+    {
+         self.userData.isCodAvailable = [[metaData objectForKey:@"isCOD"] boolValue];
+    }
+    if ([metaData objectForKey:@"iscoupon"])
+    {
+        self.userData.isCodAvailable = [[metaData objectForKey:@"iscoupon"]boolValue];
+    }
+    
+    if ([metaData objectForKey:@"item"])
+    {
+        NSArray* itemArray = (NSArray*)[metaData objectForKey:@"item"];
+        NSPredicate* categoryPredicate = [NSPredicate predicateWithFormat:@"Cat like '0'"];
+        NSArray* filteredArray = [itemArray filteredArrayUsingPredicate:categoryPredicate];
+        if ([filteredArray count])
+        {
+            self.userData.photoPrintsArray = [NSArray arrayWithArray:filteredArray];
+        }
+        
+        categoryPredicate = [NSPredicate predicateWithFormat:@"Cat like '1'"];
+        filteredArray = [itemArray filteredArrayUsingPredicate:categoryPredicate];
+        if ([filteredArray count])
+        {
+            self.userData.tShirtPrintsArray = [NSArray arrayWithArray:filteredArray];
+        }
+
+        categoryPredicate = [NSPredicate predicateWithFormat:@"Cat like '2'"];
+        filteredArray = [itemArray filteredArrayUsingPredicate:categoryPredicate];
+        if ([filteredArray count])
+        {
+            self.userData.mugPrintsArray = [NSArray arrayWithArray:filteredArray];
+        }
+
+        categoryPredicate = [NSPredicate predicateWithFormat:@"Cat like '4'"];
+        filteredArray = [itemArray filteredArrayUsingPredicate:categoryPredicate];
+        if ([filteredArray count])
+        {
+            self.userData.photoBookPrintsArray = [NSArray arrayWithArray:filteredArray];
+        }
+
+        
+    }
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

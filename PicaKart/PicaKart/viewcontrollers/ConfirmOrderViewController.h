@@ -10,6 +10,7 @@
 
 @interface ConfirmOrderViewController : BaseViewController
 @property (nonatomic, weak)IBOutlet UITableView* tableView;
+@property (nonatomic, assign)int selectedCategory;
 
 
 @end
