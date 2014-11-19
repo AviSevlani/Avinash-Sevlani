@@ -11,6 +11,7 @@
 @interface ConfirmOrderViewController : BaseViewController
 @property (nonatomic, weak)IBOutlet UITableView* tableView;
 @property (nonatomic, assign)int selectedCategory;
+@property (nonatomic, assign)IBOutlet UILabel* photoSize;
 
 
 @end

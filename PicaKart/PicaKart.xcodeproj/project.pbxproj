@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2E41F21A188BEE00AC5A49 /* UserMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E41F11A188BEE00AC5A49 /* UserMetaData.m */; };
 		3B4949891A0DF9540029FC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4949881A0DF9540029FC28 /* main.m */; };
 		3B49498C1A0DF9540029FC28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B49498B1A0DF9540029FC28 /* AppDelegate.m */; };
 		3B49498F1A0DF9540029FC28 /* PicaKart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49498D1A0DF9540029FC28 /* PicaKart.xcdatamodeld */; };
@@ -15,6 +16,9 @@
 		3B4949971A0DF9540029FC28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4949961A0DF9540029FC28 /* Images.xcassets */; };
 		3B49499A1A0DF9540029FC28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4949981A0DF9540029FC28 /* LaunchScreen.xib */; };
 		3B4949A61A0DF9540029FC28 /* PicaKartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4949A51A0DF9540029FC28 /* PicaKartTests.m */; };
+		3B59775D1A1A63570088C98E /* selectPhotoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B59775C1A1A63570088C98E /* selectPhotoSize.m */; };
+		3B5977611A1A763F0088C98E /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5977601A1A763F0088C98E /* UIView+Autolayout.m */; };
+		3B5977641A1A7A420088C98E /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5977631A1A7A420088C98E /* UIView+Position.m */; };
 		3B740D8C1A0F5342001C707B /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B740D8B1A0F5342001C707B /* RegistrationViewController.m */; };
 		3B9C4D271A0F84F000068803 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4D031A0F84F000068803 /* AFHTTPRequestOperation.m */; };
 		3B9C4D281A0F84F000068803 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4D051A0F84F000068803 /* AFHTTPRequestOperationManager.m */; };
@@ -59,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B2E41F01A188BEE00AC5A49 /* UserMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMetaData.h; sourceTree = "<group>"; };
+		3B2E41F11A188BEE00AC5A49 /* UserMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMetaData.m; sourceTree = "<group>"; };
 		3B4949831A0DF9540029FC28 /* PicaKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicaKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4949871A0DF9540029FC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4949881A0DF9540029FC28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +79,12 @@
 		3B49499F1A0DF9540029FC28 /* PicaKartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicaKartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4949A41A0DF9540029FC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4949A51A0DF9540029FC28 /* PicaKartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicaKartTests.m; sourceTree = "<group>"; };
+		3B59775B1A1A63570088C98E /* selectPhotoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectPhotoSize.h; sourceTree = "<group>"; };
+		3B59775C1A1A63570088C98E /* selectPhotoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectPhotoSize.m; sourceTree = "<group>"; };
+		3B59775F1A1A763F0088C98E /* UIView+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Autolayout.h"; sourceTree = "<group>"; };
+		3B5977601A1A763F0088C98E /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Autolayout.m"; sourceTree = "<group>"; };
+		3B5977621A1A7A420088C98E /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
+		3B5977631A1A7A420088C98E /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		3B740D8A1A0F5342001C707B /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		3B740D8B1A0F5342001C707B /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		3B9C4D021A0F84F000068803 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -149,6 +161,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2E41ED1A188A9500AC5A49 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3B2E41EE1A188A9500AC5A49 /* categories */,
+				3B2E41EF1A188A9500AC5A49 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3B2E41EE1A188A9500AC5A49 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = categories;
+			sourceTree = "<group>";
+		};
+		3B2E41EF1A188A9500AC5A49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B2E41F01A188BEE00AC5A49 /* UserMetaData.h */,
+				3B2E41F11A188BEE00AC5A49 /* UserMetaData.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3B49497A1A0DF9540029FC28 = {
 			isa = PBXGroup;
 			children = (
@@ -170,10 +207,10 @@
 		3B4949851A0DF9540029FC28 /* PicaKart */ = {
 			isa = PBXGroup;
 			children = (
+				3B740D8D1A0F5347001C707B /* UI */,
+				3B2E41ED1A188A9500AC5A49 /* Domain */,
 				3BF9EB481A13BA4400BCD8D6 /* resources */,
 				3B9C4CFF1A0F84AD00068803 /* Externals */,
-				3B9C4CFE1A0F84A200068803 /* domain */,
-				3B740D8D1A0F5347001C707B /* UI */,
 				3B49498A1A0DF9540029FC28 /* AppDelegate.h */,
 				3B49498B1A0DF9540029FC28 /* AppDelegate.m */,
 				3B4949931A0DF9540029FC28 /* Main.storyboard */,
@@ -212,9 +249,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3B59775A1A1A63170088C98E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B59775B1A1A63570088C98E /* selectPhotoSize.h */,
+				3B59775C1A1A63570088C98E /* selectPhotoSize.m */,
+			);
+			name = View;
+			path = UI/View;
+			sourceTree = "<group>";
+		};
+		3B59775E1A1A763F0088C98E /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				3B5977621A1A7A420088C98E /* UIView+Position.h */,
+				3B5977631A1A7A420088C98E /* UIView+Position.m */,
+				3B59775F1A1A763F0088C98E /* UIView+Autolayout.h */,
+				3B5977601A1A763F0088C98E /* UIView+Autolayout.m */,
+			);
+			name = categories;
+			path = UI/categories;
+			sourceTree = "<group>";
+		};
 		3B740D8D1A0F5347001C707B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3B59775E1A1A763F0088C98E /* categories */,
+				3B59775A1A1A63170088C98E /* View */,
 				3BF9EB5F1A13D3EE00BCD8D6 /* TableCells */,
 				3B740D8E1A0F5353001C707B /* viewcontroller */,
 			);
@@ -236,13 +297,6 @@
 				3BF9EB5A1A13D33500BCD8D6 /* ConfirmOrderViewController.m */,
 			);
 			name = viewcontroller;
-			sourceTree = "<group>";
-		};
-		3B9C4CFE1A0F84A200068803 /* domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = domain;
 			sourceTree = "<group>";
 		};
 		3B9C4CFF1A0F84AD00068803 /* Externals */ = {
@@ -449,15 +503,19 @@
 				3BF9EB5B1A13D33500BCD8D6 /* ConfirmOrderViewController.m in Sources */,
 				3B9C4D2C1A0F84F000068803 /* AFURLConnectionOperation.m in Sources */,
 				3BF9EB5E1A13D3E500BCD8D6 /* PhotoTableViewCell.m in Sources */,
+				3B5977641A1A7A420088C98E /* UIView+Position.m in Sources */,
 				3BF9EB471A13B91B00BCD8D6 /* BaseViewController.m in Sources */,
 				3B9C4D271A0F84F000068803 /* AFHTTPRequestOperation.m in Sources */,
 				3B9C4D3E1A0F8E6500068803 /* VerificationViewController.m in Sources */,
 				3B9C4D331A0F84F000068803 /* UIButton+AFNetworking.m in Sources */,
 				3B9C4D2A1A0F84F000068803 /* AFNetworkReachabilityManager.m in Sources */,
+				3B2E41F21A188BEE00AC5A49 /* UserMetaData.m in Sources */,
+				3B59775D1A1A63570088C98E /* selectPhotoSize.m in Sources */,
 				3B9C4D351A0F84F000068803 /* UIProgressView+AFNetworking.m in Sources */,
 				3B9C4D2F1A0F84F000068803 /* AFURLSessionManager.m in Sources */,
 				3B9C4D2D1A0F84F000068803 /* AFURLRequestSerialization.m in Sources */,
 				3B49498C1A0DF9540029FC28 /* AppDelegate.m in Sources */,
+				3B5977611A1A763F0088C98E /* UIView+Autolayout.m in Sources */,
 				3B9C4D361A0F84F000068803 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3B9C4D2E1A0F84F000068803 /* AFURLResponseSerialization.m in Sources */,
 				3B4949891A0DF9540029FC28 /* main.m in Sources */,

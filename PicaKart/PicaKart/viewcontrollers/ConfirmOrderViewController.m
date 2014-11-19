@@ -10,12 +10,17 @@
 #import "PhotoTableViewCell.h"
 #import "AppDelegate.h"
 #import "UserMetaData.h"
+#import "selectPhotoSize.h"
+#import "UIView+Autolayout.h"
+#import "UIView+Position.h"
 
 @interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,photoOrderDelegate,UIImagePickerControllerDelegate>
 {
     NSMutableArray* imageOrderArray;
     UIBarButtonItem* doneButton;
     NSMutableArray* availableItemArray;
+    UIView* grayView;
+    NSDictionary* selectedDict;
 }
 
 @end
@@ -33,7 +38,7 @@
     {
         case 0:
         {
-            [availableItemArray addObjectsFromArray:appDelgate.userData.photoBookPrintsArray];
+            [availableItemArray addObjectsFromArray:appDelgate.userData.photoPrintsArray];
         }
             
             break;
@@ -104,7 +109,31 @@
 
 - (IBAction)proceedClicked:(id)sender
 {
+   
+}
+
+
+
+
+- (IBAction)selectPhototSize
+{
+    if (!grayView)
+    {
+        grayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        grayView.backgroundColor = [UIColor colorWithWhite:0.6 alpha:0.5];
+    }
     
+    selectPhotoSize *photoSizeTableView = [[selectPhotoSize alloc]initWithFrame:CGRectMake(0, 0, 160, 240)];
+    photoSizeTableView.backgroundColor = [UIColor whiteColor];
+    [grayView addSubview:photoSizeTableView];
+     [self.view addSubview:grayView];
+    [photoSizeTableView setSizeArray:availableItemArray];
+    [photoSizeTableView centerInParent];
+    
+   
+    
+    
+
 }
 
 #pragma mark - photoOrderDelegate

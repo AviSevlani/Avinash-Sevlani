@@ -253,12 +253,45 @@
                                             <constraint firstAttribute="height" constant="1" id="wD5-oh-0Bk"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRS-j9-Vsh" userLabel="size">
+                                        <rect key="frame" x="135" y="9" width="161" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="161" id="KXk-aK-ErF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.81253985969387754" green="0.70481127629877005" blue="0.38162552611344758" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Photo Size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzM-T4-58F">
+                                        <rect key="frame" x="39" y="16" width="88" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="T8H-ld-Wit"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azv-S6-aBn">
+                                        <rect key="frame" x="135" y="9" width="161" height="37"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="161" id="Hdx-oM-iqe"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectPhototSize" destination="rO7-gl-QjI" eventType="touchUpInside" id="rEK-fE-5yC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="On0-Ni-A0B" secondAttribute="trailing" id="KLm-Y3-whQ"/>
                                     <constraint firstItem="On0-Ni-A0B" firstAttribute="leading" secondItem="QI9-27-YXR" secondAttribute="leading" id="OU6-L7-xOo"/>
                                     <constraint firstItem="On0-Ni-A0B" firstAttribute="top" secondItem="QI9-27-YXR" secondAttribute="top" id="RIa-dp-lUB"/>
+                                    <constraint firstItem="gRS-j9-Vsh" firstAttribute="leading" secondItem="TzM-T4-58F" secondAttribute="trailing" constant="8" id="l68-5z-may"/>
+                                    <constraint firstItem="azv-S6-aBn" firstAttribute="leading" secondItem="TzM-T4-58F" secondAttribute="trailing" constant="8" id="lhc-UK-s77"/>
                                     <constraint firstAttribute="height" constant="54" id="xgX-PO-dqJ"/>
                                 </constraints>
                             </view>
@@ -417,6 +450,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
+                        <outlet property="photoSize" destination="gRS-j9-Vsh" id="ZWU-qz-3HQ"/>
                         <outlet property="tableView" destination="yGC-cz-F9U" id="X9o-gr-Mqc"/>
                     </connections>
                 </viewController>
