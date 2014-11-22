@@ -14,13 +14,14 @@
 #import "UIView+Autolayout.h"
 #import "UIView+Position.h"
 
-@interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,photoOrderDelegate,UIImagePickerControllerDelegate>
+@interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,photoOrderDelegate,UIImagePickerControllerDelegate,selectSizeDelegate>
 {
     NSMutableArray* imageOrderArray;
     UIBarButtonItem* doneButton;
     NSMutableArray* availableItemArray;
     UIView* grayView;
     NSDictionary* selectedDict;
+    UserMetaData*   userMetaData;
 }
 
 @end
@@ -30,7 +31,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.orderDetailView.alpha = 0.0;
+    
      AppDelegate* appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    userMetaData = appDelgate.userData;
+    
+    self.photoSize.text = @"Select Size";
+    self.photoSize.layer.borderColor = self.photoSize.textColor.CGColor;
+    self.photoSize.layer.borderWidth = 1.0;
     
     imageOrderArray  = [[NSMutableArray alloc]init];
     availableItemArray = [[NSMutableArray alloc]init];
@@ -65,6 +73,15 @@
     }
     
     // Do any additional setup after loading the view.
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    CGRect tempRect = self.orderDetailView.frame;
+    tempRect.origin.x = self.view.frame.size.width;
+    self.orderDetailView.frame = tempRect;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,10 +126,90 @@
 
 - (IBAction)proceedClicked:(id)sender
 {
-   
+    if (![imageOrderArray count])
+    {
+        [[[UIAlertView alloc]initWithTitle:@"No Photo Added" message:@"Please Add photos in order To procede" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+    else if (!selectedDict)
+    {
+        [[[UIAlertView alloc]initWithTitle:@"No Photo Size Selected" message:@"Please select photos Size To procede" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+    else
+    {
+        self.totalPrints.text = [NSString stringWithFormat:@"%lu",(unsigned long)[imageOrderArray count]];
+        self.deliveryCharges.text = [NSString stringWithFormat:@"%0.2f",userMetaData.codCharge];
+        float totalCharge = [[selectedDict objectForKey:@"Price"]floatValue] * [imageOrderArray count];
+        totalCharge += userMetaData.codCharge;
+        self.totalAmount.text = [NSString stringWithFormat:@"%0.2f",totalCharge];
+        
+        switch (self.selectedCategory)
+        {
+            case 0:
+            {
+                self.printType.text = @"Photo Prints";
+            }
+                
+                break;
+            case 1:
+            {
+               self.printType.text = @"T-shirt Prints";
+            }
+                
+                break;
+            case 2:
+            {
+               self.printType.text = @"Mug Prints";
+            }
+                
+                break;
+            case 3:
+            {
+                self.printType.text = @"Photobook";
+            }
+                break;
+                
+            default:
+                break;
+        }
+      
+        if ([userMetaData.addressArray count])
+        {
+            self.address.text = [userMetaData.addressArray objectAtIndex:0];
+        }
+        else
+        {
+            [self.changeAddress setTitle:@"Add" forState:UIControlStateNormal];
+        }
+      
+        
+        CGRect tempRect = self.orderDetailView.frame;
+        tempRect.origin.x = 0;
+       
+
+        self.orderDetailView.alpha = 0.8;
+        [UIView animateWithDuration:0.6 animations:^{
+             self.orderDetailView.alpha = 1.0;
+             self.orderDetailView.frame = tempRect;
+        }];
+       
+        
+    }
 }
 
+- (IBAction)addToCartClicked:(id)sender
+{
+    
+}
 
+- (IBAction)printNowClicked:(id)sender
+{
+    
+}
+
+- (IBAction)changeAddressClicked:(id)sender
+{
+    
+}
 
 
 - (IBAction)selectPhototSize
@@ -120,15 +217,24 @@
     if (!grayView)
     {
         grayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        grayView.backgroundColor = [UIColor colorWithWhite:0.6 alpha:0.5];
+        grayView.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.6];
     }
     
-    selectPhotoSize *photoSizeTableView = [[selectPhotoSize alloc]initWithFrame:CGRectMake(0, 0, 160, 240)];
+    selectPhotoSize *photoSizeTableView = [[selectPhotoSize alloc]initWithFrame:CGRectMake(0, 0, 160, 180)];
+    photoSizeTableView.selectedItem = selectedDict;
+    photoSizeTableView.delegateRefrence = self;
     photoSizeTableView.backgroundColor = [UIColor whiteColor];
+    photoSizeTableView.layer.cornerRadius = 4.0;
+    photoSizeTableView.layer.masksToBounds = YES;
     [grayView addSubview:photoSizeTableView];
-     [self.view addSubview:grayView];
+    if (![grayView superview])
+    {
+        [self.view addSubview:grayView];
+    }
+    
     [photoSizeTableView setSizeArray:availableItemArray];
     [photoSizeTableView centerInParent];
+ 
     
    
     
@@ -145,6 +251,13 @@
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+#pragma mark -  selectSizeDelegate
+- (void)selectedSize:(id)selectedItemObj
+{
+    selectedDict = selectedItemObj;
+    self.photoSize.text = [selectedDict objectForKey:@"Name"];
+    [grayView removeFromSuperview];
+}
 
 #pragma mark UIImagePickerControllerDelegate
 

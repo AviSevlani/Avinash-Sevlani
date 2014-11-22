@@ -51,6 +51,9 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        UIView* lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 43, self.frame.size.width, 1)];
+        lineView.backgroundColor = [UIColor lightGrayColor];
+        [cell addSubview:lineView];
     }
     cell.textLabel.text = [[sizeArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
     if ([self.selectedItem isEqual:[sizeArray objectAtIndex:indexPath.row]])
@@ -65,6 +68,11 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.delegateRefrence selectedSize:[sizeArray objectAtIndex:indexPath.row]];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

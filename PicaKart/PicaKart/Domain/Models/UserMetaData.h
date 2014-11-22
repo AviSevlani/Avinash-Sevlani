@@ -10,7 +10,7 @@
 
 @interface UserMetaData : NSObject
 @property (nonatomic, retain)NSArray* addressArray;
-@property (nonatomic, retain)NSNumber* codCharge;
+@property (nonatomic, assign)float codCharge;
 @property (nonatomic, assign)BOOL isCodAvailable;
 @property (nonatomic, assign)BOOL isCouponAvailable;
 @property (nonatomic, retain)NSArray* photoPrintsArray;
