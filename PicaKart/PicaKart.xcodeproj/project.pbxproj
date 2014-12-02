@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0168491A20B324006F9DD7 /* SelectAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0168481A20B324006F9DD7 /* SelectAddressViewController.m */; };
+		3B02CB361A2AF9F50072E022 /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B02CB351A2AF9F50072E022 /* NewAddressViewController.m */; };
+		3B02CB451A2DDE9A0072E022 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B02CB441A2DDE9A0072E022 /* PaymentViewController.m */; };
+		3B02CB471A2DDFB90072E022 /* paymentTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B02CB461A2DDFB90072E022 /* paymentTab@2x.png */; };
+		3B02CB4A1A2E13BE0072E022 /* selectedPayment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B02CB481A2E13BE0072E022 /* selectedPayment@2x.png */; };
+		3B02CB4B1A2E13BE0072E022 /* unselectedPayment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B02CB491A2E13BE0072E022 /* unselectedPayment@2x.png */; };
 		3B2E41F21A188BEE00AC5A49 /* UserMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E41F11A188BEE00AC5A49 /* UserMetaData.m */; };
+		3B30EEA81A213081005C55E6 /* AddresTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B30EEA71A213081005C55E6 /* AddresTableViewCell.m */; };
 		3B4949891A0DF9540029FC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4949881A0DF9540029FC28 /* main.m */; };
 		3B49498C1A0DF9540029FC28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B49498B1A0DF9540029FC28 /* AppDelegate.m */; };
 		3B49498F1A0DF9540029FC28 /* PicaKart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B49498D1A0DF9540029FC28 /* PicaKart.xcdatamodeld */; };
@@ -63,8 +70,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0168471A20B324006F9DD7 /* SelectAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAddressViewController.h; path = viewcontrollers/SelectAddressViewController.h; sourceTree = "<group>"; };
+		3B0168481A20B324006F9DD7 /* SelectAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAddressViewController.m; path = viewcontrollers/SelectAddressViewController.m; sourceTree = "<group>"; };
+		3B02CB341A2AF9F50072E022 /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewAddressViewController.h; path = viewcontrollers/NewAddressViewController.h; sourceTree = "<group>"; };
+		3B02CB351A2AF9F50072E022 /* NewAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewAddressViewController.m; path = viewcontrollers/NewAddressViewController.m; sourceTree = "<group>"; };
+		3B02CB431A2DDE9A0072E022 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentViewController.h; path = viewcontrollers/PaymentViewController.h; sourceTree = "<group>"; };
+		3B02CB441A2DDE9A0072E022 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = viewcontrollers/PaymentViewController.m; sourceTree = "<group>"; };
+		3B02CB461A2DDFB90072E022 /* paymentTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paymentTab@2x.png"; sourceTree = "<group>"; };
+		3B02CB481A2E13BE0072E022 /* selectedPayment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectedPayment@2x.png"; sourceTree = "<group>"; };
+		3B02CB491A2E13BE0072E022 /* unselectedPayment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unselectedPayment@2x.png"; sourceTree = "<group>"; };
 		3B2E41F01A188BEE00AC5A49 /* UserMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMetaData.h; sourceTree = "<group>"; };
 		3B2E41F11A188BEE00AC5A49 /* UserMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMetaData.m; sourceTree = "<group>"; };
+		3B30EEA61A213081005C55E6 /* AddresTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddresTableViewCell.h; path = TableCells/AddresTableViewCell.h; sourceTree = "<group>"; };
+		3B30EEA71A213081005C55E6 /* AddresTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddresTableViewCell.m; path = TableCells/AddresTableViewCell.m; sourceTree = "<group>"; };
 		3B4949831A0DF9540029FC28 /* PicaKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicaKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4949871A0DF9540029FC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4949881A0DF9540029FC28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -295,6 +313,12 @@
 				3BF9EB461A13B91B00BCD8D6 /* BaseViewController.m */,
 				3BF9EB591A13D33500BCD8D6 /* ConfirmOrderViewController.h */,
 				3BF9EB5A1A13D33500BCD8D6 /* ConfirmOrderViewController.m */,
+				3B0168471A20B324006F9DD7 /* SelectAddressViewController.h */,
+				3B0168481A20B324006F9DD7 /* SelectAddressViewController.m */,
+				3B02CB341A2AF9F50072E022 /* NewAddressViewController.h */,
+				3B02CB351A2AF9F50072E022 /* NewAddressViewController.m */,
+				3B02CB431A2DDE9A0072E022 /* PaymentViewController.h */,
+				3B02CB441A2DDE9A0072E022 /* PaymentViewController.m */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -369,6 +393,9 @@
 		3BF9EB481A13BA4400BCD8D6 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				3B02CB481A2E13BE0072E022 /* selectedPayment@2x.png */,
+				3B02CB491A2E13BE0072E022 /* unselectedPayment@2x.png */,
+				3B02CB461A2DDFB90072E022 /* paymentTab@2x.png */,
 				3BF9EB601A13DD0900BCD8D6 /* crossBtn@2x.png */,
 				3BF9EB571A13CB2C00BCD8D6 /* confirmOrder@2x.png */,
 				3BF9EB551A13C91100BCD8D6 /* MugPrints@2x.png */,
@@ -387,6 +414,8 @@
 			children = (
 				3BF9EB5C1A13D3E500BCD8D6 /* PhotoTableViewCell.h */,
 				3BF9EB5D1A13D3E500BCD8D6 /* PhotoTableViewCell.m */,
+				3B30EEA61A213081005C55E6 /* AddresTableViewCell.h */,
+				3B30EEA71A213081005C55E6 /* AddresTableViewCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -473,10 +502,13 @@
 			files = (
 				3BF9EB581A13CB2C00BCD8D6 /* confirmOrder@2x.png in Resources */,
 				3BF9EB561A13C91100BCD8D6 /* MugPrints@2x.png in Resources */,
+				3B02CB471A2DDFB90072E022 /* paymentTab@2x.png in Resources */,
 				3B4949951A0DF9540029FC28 /* Main.storyboard in Resources */,
 				3B49499A1A0DF9540029FC28 /* LaunchScreen.xib in Resources */,
 				3BF9EB521A13C81600BCD8D6 /* PhotoBook@2x.png in Resources */,
+				3B02CB4A1A2E13BE0072E022 /* selectedPayment@2x.png in Resources */,
 				3BF9EB4E1A13C4A400BCD8D6 /* selectJob@2x.png in Resources */,
+				3B02CB4B1A2E13BE0072E022 /* unselectedPayment@2x.png in Resources */,
 				3BF9EB611A13DD0900BCD8D6 /* crossBtn@2x.png in Resources */,
 				3BF9EB531A13C81600BCD8D6 /* T-shirtPrints@2x.png in Resources */,
 				3B4949971A0DF9540029FC28 /* Images.xcassets in Resources */,
@@ -506,6 +538,7 @@
 				3B5977641A1A7A420088C98E /* UIView+Position.m in Sources */,
 				3BF9EB471A13B91B00BCD8D6 /* BaseViewController.m in Sources */,
 				3B9C4D271A0F84F000068803 /* AFHTTPRequestOperation.m in Sources */,
+				3B30EEA81A213081005C55E6 /* AddresTableViewCell.m in Sources */,
 				3B9C4D3E1A0F8E6500068803 /* VerificationViewController.m in Sources */,
 				3B9C4D331A0F84F000068803 /* UIButton+AFNetworking.m in Sources */,
 				3B9C4D2A1A0F84F000068803 /* AFNetworkReachabilityManager.m in Sources */,
@@ -518,12 +551,15 @@
 				3B5977611A1A763F0088C98E /* UIView+Autolayout.m in Sources */,
 				3B9C4D361A0F84F000068803 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3B9C4D2E1A0F84F000068803 /* AFURLResponseSerialization.m in Sources */,
+				3B0168491A20B324006F9DD7 /* SelectAddressViewController.m in Sources */,
 				3B4949891A0DF9540029FC28 /* main.m in Sources */,
 				3B9C4D341A0F84F000068803 /* UIImageView+AFNetworking.m in Sources */,
 				3B740D8C1A0F5342001C707B /* RegistrationViewController.m in Sources */,
 				3B9C4D321A0F84F000068803 /* UIAlertView+AFNetworking.m in Sources */,
 				3B9C4D281A0F84F000068803 /* AFHTTPRequestOperationManager.m in Sources */,
+				3B02CB451A2DDE9A0072E022 /* PaymentViewController.m in Sources */,
 				3B9C4D2B1A0F84F000068803 /* AFSecurityPolicy.m in Sources */,
+				3B02CB361A2AF9F50072E022 /* NewAddressViewController.m in Sources */,
 				3B9C4D371A0F84F000068803 /* UIWebView+AFNetworking.m in Sources */,
 				3B4949921A0DF9540029FC28 /* ViewController.m in Sources */,
 				3B49498F1A0DF9540029FC28 /* PicaKart.xcdatamodeld in Sources */,

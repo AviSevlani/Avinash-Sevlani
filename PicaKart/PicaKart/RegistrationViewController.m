@@ -122,6 +122,7 @@
             NSDictionary* dict = (NSDictionary*)responseObject;
             
             verificationCode = [[dict objectForKey:@"SendVerificationResult"] objectForKey:@"Message"];
+            NSLog(@"%@",verificationCode);
             
             [self performSegueWithIdentifier:@"verificationSegue" sender:self];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

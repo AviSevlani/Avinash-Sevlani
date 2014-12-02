@@ -208,7 +208,7 @@
 
 - (IBAction)changeAddressClicked:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"changeAddressSegue" sender:self];
 }
 
 
@@ -258,6 +258,14 @@
     self.photoSize.text = [selectedDict objectForKey:@"Name"];
     [grayView removeFromSuperview];
 }
+
+#pragma mark - ScrollView Delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self resignFirstResponder];
+}
+
 
 #pragma mark UIImagePickerControllerDelegate
 
