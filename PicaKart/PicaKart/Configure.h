@@ -18,6 +18,7 @@
 # define vendorId           @"4"
 # define sha                @"1"
 #define regType             @"2"
+# define SAVE_ADDRESS_URL   @"SaveAddress"
 
 
 #endif

@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "SelectAddressViewController.h"
 
 @interface NewAddressViewController : BaseViewController
 @property (nonatomic,weak)IBOutlet UIScrollView* scrollView;
@@ -15,6 +16,7 @@
 @property (nonatomic,weak)IBOutlet UITextField* enterLandmark;
 @property (nonatomic,weak)IBOutlet UITextView* enterAdressTextView;
 @property (nonatomic,weak)IBOutlet UILabel* adressPlaceholder;
+@property (nonatomic,weak) id<changeAddressDelegate> delegateRef;
 
 
 

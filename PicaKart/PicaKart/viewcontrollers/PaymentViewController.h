@@ -10,5 +10,7 @@
 
 @interface PaymentViewController : BaseViewController
 
+@property (nonatomic, weak)UIView* couponView;
+@property (nonatomic, weak)UIView* paymentTypeView;
 
 @end

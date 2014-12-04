@@ -42,6 +42,7 @@
     else
     {
         cell = [[self alloc] initWithAddressDict:addressDict reuseIdentifier:@"AddresTableViewCell"];
+        cell.address = addressDict;
     }
     
     return cell;
@@ -59,8 +60,33 @@
 
 - (void)layoutSubviews
 {
-    [super layoutSubviews];
+     [super layoutSubviews];
+    NSArray* stringArray = [[self.address objectForKey:@"Address"] componentsSeparatedByString:@","];
+    if ([stringArray count] > 0)
+    {
+        self.nameLabel.text = [stringArray objectAtIndex:0];
+    }
+    if ([stringArray count] > 1)
+    {
+        self.addressLabel.text = [stringArray objectAtIndex:1];
+    }
+    if ([stringArray count] > 2)
+    {
+        self.landmarkLabel.text = [stringArray objectAtIndex:2];
+    }
+    if ([stringArray count] > 3)
+    {
+         self.zipCodeLabel.text = [stringArray objectAtIndex:3];
+    }
     
 }
+
+
++ (CGFloat)heightForCell
+{
+    return 150;
+}
+
+
 @end
 

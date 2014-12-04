@@ -7,8 +7,14 @@
 //
 
 #import "NewAddressViewController.h"
+#import "AFNetworking.h"
+#import "Configure.h"
+#import "AppDelegate.h"
 
 @interface NewAddressViewController ()<UITextViewDelegate,UIScrollViewDelegate>
+{
+    NSString* addressString;
+}
 
 @end
 
@@ -69,6 +75,54 @@
                      }];
 }
 
+#pragma mark - 
+
+- (void)saveNewAddress
+{
+    
+    NSURL *baseURL = [NSURL URLWithString:BASE_URL_STR];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    AppDelegate* appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    
+    [manager.requestSerializer setValue:appDelgate.memberId forHTTPHeaderField:@"memberid"];
+    [manager.requestSerializer setValue:addressString forHTTPHeaderField:@"address"];
+    
+    
+    [manager POST:[NSString stringWithFormat:@"%@/%@",MEMBER_URL,SAVE_ADDRESS_URL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* dict = (NSDictionary*)responseObject;
+        
+        NSString* addressId = @"";
+        if ([dict objectForKey:@"SaveAddressResult"])
+        {
+            if ([[dict objectForKey:@"SaveAddressResult"]objectForKey:@"Message"])
+            {
+                addressId = [[dict objectForKey:@"SaveAddressResult"]objectForKey:@"Message"];
+                
+                NSMutableDictionary * dict = [[NSMutableDictionary alloc]init];
+                [dict setObject:addressId forKey:@"id"];
+                [dict setObject:addressString forKey:@"Address"];
+                
+                 AppDelegate* appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+                [appDelgate.userData.addressArray addObject:dict];
+                [self.delegateRef selectedAddress:dict];
+            }
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Verification Request"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+    
+    
+}
+
+
 
 #pragma mark - Actions
 
@@ -82,17 +136,18 @@
     {
         [[[UIAlertView alloc]initWithTitle:@"Incomplete Address" message:@"Enter Address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil]show];
     }
-    else if (!self.enterLandmark.text.length)
-    {
-        [[[UIAlertView alloc]initWithTitle:@"Incomplete Address" message:@"Enter Landmark" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil]show];
-    }
+//    else if (!self.enterLandmark.text.length)
+//    {
+//        [[[UIAlertView alloc]initWithTitle:@"Incomplete Address" message:@"Enter Landmark" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil]show];
+//    }
     else if (!self.enterZipcode.text.length)
     {
         [[[UIAlertView alloc]initWithTitle:@"Incomplete Address" message:@"Enter Zipcode" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil]show];
     }
     else
     {
-        NSLog(@"Update Address");
+        addressString = [NSString stringWithFormat:@"%@,%@,%@,%@",self.enterName.text,self.enterAdressTextView.text,self.enterLandmark.text,self.enterZipcode.text];
+        [self saveNewAddress];
     }
 
     
@@ -118,7 +173,7 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self resignFirstResponder];
+
 }
 
 - (void)didReceiveMemoryWarning {

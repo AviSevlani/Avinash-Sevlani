@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface UserMetaData : NSObject
-@property (nonatomic, retain)NSArray* addressArray;
+@property (nonatomic, retain)NSMutableArray* addressArray;
 @property (nonatomic, assign)float codCharge;
 @property (nonatomic, assign)BOOL isCodAvailable;
 @property (nonatomic, assign)BOOL isCouponAvailable;

@@ -8,8 +8,15 @@
 
 #import "BaseViewController.h"
 
-@interface SelectAddressViewController : BaseViewController
+@protocol changeAddressDelegate <NSObject>
 
+- (void) selectedAddress:(NSDictionary*)selectedAddressDict;
+
+@end
+
+
+@interface SelectAddressViewController : BaseViewController
+@property (nonatomic,weak) id<changeAddressDelegate> delegateRef;
 
 - (IBAction)addNewAddress:(id)sender;
 @end

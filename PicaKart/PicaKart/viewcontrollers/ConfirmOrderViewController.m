@@ -7,14 +7,16 @@
 //
 
 #import "ConfirmOrderViewController.h"
+#import "PaymentViewController.h"
 #import "PhotoTableViewCell.h"
 #import "AppDelegate.h"
 #import "UserMetaData.h"
 #import "selectPhotoSize.h"
 #import "UIView+Autolayout.h"
 #import "UIView+Position.h"
+#import "SelectAddressViewController.h"
 
-@interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,photoOrderDelegate,UIImagePickerControllerDelegate,selectSizeDelegate>
+@interface ConfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,photoOrderDelegate,UIImagePickerControllerDelegate,selectSizeDelegate,changeAddressDelegate>
 {
     NSMutableArray* imageOrderArray;
     UIBarButtonItem* doneButton;
@@ -22,6 +24,7 @@
     UIView* grayView;
     NSDictionary* selectedDict;
     UserMetaData*   userMetaData;
+    NSDictionary* selectedAddress;
 }
 
 @end
@@ -35,6 +38,12 @@
     
      AppDelegate* appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     userMetaData = appDelgate.userData;
+    
+    if ([userMetaData.addressArray count])
+    {
+        selectedAddress = [userMetaData.addressArray objectAtIndex:0];
+    }
+    
     
     self.photoSize.text = @"Select Size";
     self.photoSize.layer.borderColor = self.photoSize.textColor.CGColor;
@@ -89,6 +98,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)updateAddress
+{
+    if (selectedAddress)
+    {
+        self.address.text = [selectedAddress objectForKey:@"Address"];
+        [self.changeAddress setTitle:@"Change" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.changeAddress setTitle:@"Add" forState:UIControlStateNormal];
+    }
+
+}
+
 /*
 #pragma mark - Navigation
 
@@ -141,7 +165,7 @@
         float totalCharge = [[selectedDict objectForKey:@"Price"]floatValue] * [imageOrderArray count];
         totalCharge += userMetaData.codCharge;
         self.totalAmount.text = [NSString stringWithFormat:@"%0.2f",totalCharge];
-        
+
         switch (self.selectedCategory)
         {
             case 0:
@@ -171,17 +195,9 @@
             default:
                 break;
         }
-      
-        if ([userMetaData.addressArray count])
-        {
-            self.address.text = [userMetaData.addressArray objectAtIndex:0];
-        }
-        else
-        {
-            [self.changeAddress setTitle:@"Add" forState:UIControlStateNormal];
-        }
-      
-        
+
+       
+        [self updateAddress];
         CGRect tempRect = self.orderDetailView.frame;
         tempRect.origin.x = 0;
        
@@ -203,7 +219,7 @@
 
 - (IBAction)printNowClicked:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"PaymentSegue" sender:self];
 }
 
 - (IBAction)changeAddressClicked:(id)sender
@@ -242,6 +258,20 @@
 
 }
 
+#pragma mark - prepareSqueue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PaymentSegue"]){
+        PaymentViewController* paymentVc = segue.destinationViewController;
+    }
+    else if ([segue.identifier isEqualToString:@"changeAddressSegue"])
+    {
+        SelectAddressViewController *addressVc = segue.destinationViewController;
+        addressVc.delegateRef = self;
+    }
+   
+}
+
 #pragma mark - photoOrderDelegate
 - (void)deleteImageOrder:(NSMutableDictionary*)imageOrder
 {
@@ -251,7 +281,18 @@
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-#pragma mark -  selectSizeDelegate
+#pragma mark - Delegates
+
+#pragma mark changeAddressDelegate
+
+- (void) selectedAddress:(NSDictionary*)selectedAddressDict
+{
+    selectedAddress = selectedAddressDict;
+    [self updateAddress];
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+#pragma mark selectSizeDelegate
 - (void)selectedSize:(id)selectedItemObj
 {
     selectedDict = selectedItemObj;

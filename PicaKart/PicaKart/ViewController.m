@@ -26,8 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getUserMetaData];
     appDelgate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    [self getUserMetaData];
+    
     // Do any additional setup after loading the view, typically from a nib.
     
 }
@@ -50,8 +51,6 @@
 - (void)getUserMetaData
 {
     
-   
-    
     NSURL *baseURL = [NSURL URLWithString:BASE_URL_STR];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -62,10 +61,7 @@
     
     [manager POST:[NSString stringWithFormat:@"%@/%@",MEMBER_URL,USER_METADATA_URL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        
-         NSDictionary* dict = (NSDictionary*)responseObject;
-        
-        
+        NSDictionary* dict = (NSDictionary*)responseObject;
         if ([dict objectForKey:@"MetaDataResult"])
         {
             if (!appDelgate.userData)

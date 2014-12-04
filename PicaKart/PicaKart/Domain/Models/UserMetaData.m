@@ -9,5 +9,4 @@
 #import "UserMetaData.h"
 
 @implementation UserMetaData
-
 @end

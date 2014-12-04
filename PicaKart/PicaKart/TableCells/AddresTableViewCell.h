@@ -16,4 +16,6 @@
 
 + (AddresTableViewCell*) cellForAddress:(NSMutableDictionary*)addressDict inTableView:(UITableView*)tableView;
 
++ (CGFloat)heightForCell;
+
 @end

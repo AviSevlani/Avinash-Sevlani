@@ -41,6 +41,8 @@
 - (void)initializeUserMetadat
 {
     self.userData = [[UserMetaData alloc]init];
+    NSMutableArray* addressArray = [[NSMutableArray alloc]init];
+    self.userData.addressArray = addressArray;
 }
 
 - (void)parseMetadat:(NSDictionary*)metaData
@@ -48,7 +50,7 @@
     
     if ([metaData objectForKey:@"Address"])
     {
-        self.userData.addressArray = (NSArray*)[metaData objectForKey:@"Address"];
+        [self.userData.addressArray addObjectsFromArray:[metaData objectForKey:@"Address"]];
     }
     if ([metaData objectForKey:@"isCOD"])
     {
