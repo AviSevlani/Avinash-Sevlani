@@ -10,7 +10,17 @@
 
 @interface PaymentViewController : BaseViewController
 
-@property (nonatomic, weak)UIView* couponView;
-@property (nonatomic, weak)UIView* paymentTypeView;
+@property (nonatomic, weak)IBOutlet UIView* couponView;
+@property (nonatomic, weak)IBOutlet UIView* paymentTypeView;
+@property (nonatomic, weak)IBOutlet UIImageView* cashOnDeliveryImageView;
+@property (nonatomic, weak)IBOutlet UIImageView* paypalImageView;
+@property (nonatomic, strong)NSDictionary* selectedAddressDict;
+
+@property (nonatomic, weak)IBOutlet UIView* paymentDetails;
+@property (nonatomic, weak)IBOutlet UILabel* paymentDate;
+@property (nonatomic, weak)IBOutlet UILabel* paymentStatus;
+@property (nonatomic, weak)IBOutlet UILabel* paymentAmount;
+
+
 
 @end

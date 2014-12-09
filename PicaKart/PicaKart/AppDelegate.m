@@ -58,7 +58,7 @@
     }
     if ([metaData objectForKey:@"iscoupon"])
     {
-        self.userData.isCodAvailable = [[metaData objectForKey:@"iscoupon"]boolValue];
+        self.userData.isCouponAvailable = [[metaData objectForKey:@"iscoupon"]boolValue];
     }
     if ([metaData objectForKey:@"codCharge"])
     {
